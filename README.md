@@ -4,7 +4,7 @@ Integration of `xmpfilter` to sublime text 2 as a plugin.
 
 ## Prerequisites
 
-You need to have [`rcodetools](http://rubygems.org/gems/rcodetools) installed:
+You need to have [`rcodetools`](http://rubygems.org/gems/rcodetools) installed:
 
 ```shell
 gem install rcodetools
