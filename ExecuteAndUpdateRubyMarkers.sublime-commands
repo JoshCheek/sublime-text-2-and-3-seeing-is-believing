@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Execute and Update Ruby Markers",
+    "command": "execute_and_update_ruby_markers"
+  },
+  {
+    "caption": "Set Ruby Markers",
+    "command": "set_ruby_markers"
+  }
+]

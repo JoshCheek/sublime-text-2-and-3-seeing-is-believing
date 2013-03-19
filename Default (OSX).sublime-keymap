@@ -1,0 +1,10 @@
+[
+  {
+    "keys": ["super+alt+b"],
+    "command":"execute_and_update_ruby_markers",
+    "context":
+      [
+        { "key": "selector", "operator": "equal", "operand": "source.ruby", "match_all": true }
+      ]
+  }
+]
