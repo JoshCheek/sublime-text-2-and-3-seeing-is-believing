@@ -1,0 +1,34 @@
+{
+  // the command to run your ruby, again this is setup for rbenv
+  // if you've installed Ruby without any managers, this would just be "ruby"
+  "ruby_command": "~/.rbenv/shims/ruby",
+
+
+  // environment variables to set before running
+  "environment_variables": {
+    // for bootstrapping rbenv
+    // if you manage your versions differently, you'll have to figure out how your manager works
+    "RBENV_VERSION": "2.0.0-p0"
+  },
+
+
+  // get a list of all these options and what they do by going to the console
+  // and typing `seeing_is_believing --help`
+  "flags": {
+
+    // max length of the entire line (only truncates results, not source lines)
+    "--line-length": 500,
+
+    // select the alignment strategy:
+    // file  (DEFAULT) =>  the entire file is at the same alignment
+    // chunk           =>  each chunk of code is at the same alignment
+    // line            =>  each line is at its own alignment
+    "--alignment-strategy": "chunk",
+
+    // timeout limit in seconds when evaluating source file (ex. -t 0.3 or -t 3)
+    "--timeout": 12,
+
+    // sets file encoding, equivalent to Ruby's -Kx (see `man ruby` for valid values)
+    "--encoding": "u"
+  }
+}
