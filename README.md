@@ -1,24 +1,18 @@
 # XMPFilter
 
-Integration of `xmpfilter` to sublime text 2 as a plugin.
+Integration of `seeing_is_believing` to sublime text 2 as a plugin.
 
 ## Prerequisites
 
-You need to have [`rcodetools`](http://rubygems.org/gems/rcodetools) installed:
+You need to have [`seeing_is_believing`](http://rubygems.org/gems/seeing_is_believing) installed:
 
 ```shell
-gem install rcodetools
+gem install seeing_is_believing
 ```
 
 ## Installation
 
-You have 3 options for installing XMPFilter Plugin: using Package Control, using Git, or just downloading it.
-
-### Package Control
-
-Inside Sublime Text 2, open your command pallete (⌘ + ⇧ + P on OS X), and select "Package Control: Install Package".
-
-After this, search for "XMPFilter" and install it!
+You have 2 options for installing SeeingIsBelieving Plugin: using Git, or just downloading it.
 
 ### Git
 
@@ -45,7 +39,7 @@ Open your terminal application and go to your Packages directory, whose location
 After this, you just need to clone this repository:
 
 ```shell
-git clone git://github.com/kassi/sublime-text-2-xmpfilter.git XMPFilter
+git clone git://github.com/kassi/sublime-text-2-seeing-is-believing.git SeeingIsBelieving
 ```
 
 ### Download
@@ -80,6 +74,4 @@ Watch your code getting annotated.
 
 ## Author
 
-Karsten Silkenbäumer
-
-[![endorse](http://api.coderwall.com/ksi/endorsecount.png)](http://coderwall.com/ksi)
+Karsten Silkenbäumer wrote the one for XMPfilter that I (Josh Chek) modified to work with Seeing Is Believing.

@@ -1,10 +1,28 @@
 [
   {
     "keys": ["ctrl+alt+b"],
-    "command":"execute_and_update_ruby_markers",
+    "command":"you_know_that_place_between_sleep_and_awake_that_place_where_you_still_remember_dreaming_thats_where_ill_always_love_you",
     "context":
       [
-        { "key": "selector", "operator": "equal", "operand": "source.ruby", "match_all": true }
+        // if selector == source.ruby for all selections
+        { "key":       "selector",
+          "operator":  "equal",
+          "operand":   "source.ruby",
+          "match_all": true }
+      ]
+  },
+
+  {
+    // b is for believer!
+    "keys": ["ctrl+alt+v"],
+    "command":"every_time_someone_says_iDo_not_believe_in_fairies_somewhere_theres_aFairy_that_falls_down_dead",
+    "context":
+      [
+        // if selector == source.ruby for all selections
+        { "key":       "selector",
+          "operator":  "equal",
+          "operand":   "source.ruby",
+          "match_all": true }
       ]
   }
 ]
