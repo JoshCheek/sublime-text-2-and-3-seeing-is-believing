@@ -4,7 +4,7 @@ Integration of `seeing_is_believing` to sublime text 2 as a plugin.
 
 ## Prerequisites
 
-You need to have [`seeing_is_believing`](http://rubygems.org/gems/seeing_is_believing) installed:
+You need to have [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) installed:
 
 ```shell
 gem install seeing_is_believing
@@ -39,7 +39,7 @@ Open your terminal application and go to your Packages directory, whose location
 After this, you just need to clone this repository:
 
 ```shell
-git clone git://github.com/kassi/sublime-text-2-seeing-is-believing.git SeeingIsBelieving
+git clone git://github.com/JoshCheek/sublime-text-2-seeing-is-believing.git SeeingIsBelieving
 ```
 
 ### Download
@@ -59,9 +59,17 @@ end
 ```
 
 Now run the command `Evaluate Ruby code with Seeing Is Believing` from your command pallete (⌘ + ⇧ + P on OS X).
-Or press the pre-defined keyboard shortcut (⌥ + ⌘ + B on OS X). Watch your code getting annotated.
+Or press the pre-defined keyboard shortcut (⌥ + ⌘ + B on OS X).
+You will see comments added adjacent to each line of your code, showing you what that line evaluated to.
 
-Now you want to edit it, so run `Remove Seeing Is Believing annotations`. Or press (⌥ + ⌘ + V on OS X)
+```ruby
+10.times do |i|
+  i * 2          # => 0, 2, 4, 6, 8, 10, 12, 14, 16, 18
+end              # => 10
+```
+
+Now you want to edit it, so run `Remove Seeing Is Believing annotations` or press (⌥ + ⌘ + V on OS X).
+And you are back to the original.
 
 ## Configuration
 
