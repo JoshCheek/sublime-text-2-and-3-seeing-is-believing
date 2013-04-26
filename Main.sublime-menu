@@ -1,16 +1,17 @@
-{
-  "caption":   "Preferences",
-  // "mnemonic":  "n",
-  "id":        "preferences",
-  "children": [
-    {
-      "caption": "Settings – More",
-      "children": [
-        { "command": "open_file",
-          "args": { "file": "${packages}/Seeing Is Believing.sublime-settings"},
-          "caption": "Seeing Is Believing"
-        }
-      ]
-    }
-  ]
-}
+// {
+//   "caption":   "Preferences",
+//   // "mnemonic":  "n",
+//   "id":        "preferences",
+//   "children": [
+//     {
+//       "caption": "Settings – More",
+//       "children": [
+//         { "command": "open_file",
+//           "args": { "file": "${packages}/Seeing Is Believing.sublime-settings"},
+//           "caption": "Seeing Is Believing"
+//         }
+//       ]
+//     }
+//   ]
+// }
+[]
