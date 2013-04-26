@@ -31,7 +31,9 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
     out = s.communicate(text.encode('utf-8'))
 
     # display error
-    if s.returncode != None and s.returncode != 0:
+    #  error code 1 is displayable errors like exceptions getting raised
+    #  non zero/one errors can't be displayed, like syntax error, so we need a dialog box
+    if s.returncode != None and s.returncode != 0 and s.returncode != 1:
       sublime.message_dialog(out[1])
       return
 
