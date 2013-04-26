@@ -1,4 +1,4 @@
-# XMPFilter
+# Seeing Is Believing
 
 Integration of `seeing_is_believing` to sublime text 2 as a plugin.
 
@@ -50,19 +50,24 @@ Then unzip the file and move the resulting folder to your Packages directory.
 
 ## Usage
 
-Open a ruby file and add a ruby marker right behind or below any statement.
+Open a ruby file write some code.
 
 ```ruby
-x = 123 * 45 # =>
-y = x - 6789
-# =>
+10.times do |i|
+  i * 2
+end
 ```
 
-Now run the command `Execute And Update Ruby Markers` from your command pallete (⌘ + ⇧ + P on OS X).
+Now run the command `Evaluate Ruby code with Seeing Is Believing` from your command pallete (⌘ + ⇧ + P on OS X).
+Or press the pre-defined keyboard shortcut (⌥ + ⌘ + B on OS X). Watch your code getting annotated.
 
-Or simply hit the pre-defined keyboard shortcut (⌥ + ⌘ + B on OS X).
+Now you want to edit it, so run `Remove Seeing Is Believing annotations`. Or press (⌥ + ⌘ + V on OS X)
 
-Watch your code getting annotated.
+## Configuration
+
+You can edit these from your preferences folder. You can specify how to find Ruby (e.g. integrate with your version manager).
+And you can specify what command-line arguments to pass to Seeing Is Believing. Trying to figure out how to get this in the menu,
+but the docs are pretty weak.
 
 ## Contributing
 
@@ -74,4 +79,4 @@ Watch your code getting annotated.
 
 ## Author
 
-Karsten Silkenbäumer wrote the one for XMPfilter that I (Josh Chek) modified to work with Seeing Is Believing.
+Karsten Silkenbäumer wrote the one for XMPfilter that I (Josh Cheek) modified to work with Seeing Is Believing.
