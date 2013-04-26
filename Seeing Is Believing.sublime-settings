@@ -26,6 +26,7 @@
     "--alignment-strategy": "chunk",
 
     // timeout limit in seconds when evaluating source file (ex. -t 0.3 or -t 3)
+    // omit for no timeout (warning, can freeze your editor up if you have an infinite loop)
     "--timeout": 12,
 
     // sets file encoding, equivalent to Ruby's -Kx (see `man ruby` for valid values)
