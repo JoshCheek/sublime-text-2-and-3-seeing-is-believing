@@ -1,7 +1,5 @@
 import sublime, sublime_plugin, subprocess, os
 
-# when saved, view.file_name() has a value
-# otherwise is None and should be passed on stdin as below
 class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreamingThatsWhereIllAlwaysLoveYou(sublime_plugin.TextCommand):
   def run(self, edit):
     # load the text
