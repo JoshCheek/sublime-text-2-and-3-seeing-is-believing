@@ -48,7 +48,7 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
       args.append(self.view.file_name())
 
   def should_display_stderr(self, returncode):
-    returncode != None and returncode != 0 and returncode != 1
+    return returncode != None and returncode != 0 and returncode != 1
 
 class EveryTimeSomeoneSaysIDoNotBelieveInFairiesSomewhereTheresAFairyThatFallsDownDead(SeeingIsBelieving):
   def setup_flags(self, args, settings):
