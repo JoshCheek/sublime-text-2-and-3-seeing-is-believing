@@ -42,12 +42,30 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
 
 class EveryTimeSomeoneSaysIDoNotBelieveInFairiesSomewhereTheresAFairyThatFallsDownDead(sublime_plugin.TextCommand):
   def run(self, edit):
+    # load the text
     region = sublime.Region(0, self.view.size())
     text   = self.view.substr(region)
-    env    = os.environ.copy()
-    env['RBENV_VERSION'] = '2.0.0-p0'
-    s      = subprocess.Popen(
-      ['/Users/joshcheek/.rbenv/shims/ruby', '-S', 'seeing_is_believing', '--clean'],
+
+    # load settings
+    settings = sublime.load_settings("Seeing Is Believing.sublime-settings")
+
+    # set up env vars
+    env = os.environ.copy()
+    for (name, value) in settings.get("environment_variables").iteritems():
+      env[name] = value
+
+    # set up the args
+    args = []
+    args.append(os.path.expanduser(settings.get("ruby_command")))
+    args.append('-S')
+    args.append('seeing_is_believing')
+    args.append('--clean')
+    if self.view.file_name() != None:
+      args.append("--as")
+      args.append(self.view.file_name())
+
+    s = subprocess.Popen(
+      args,
       env=env,
       stdin=subprocess.PIPE,
       stdout=subprocess.PIPE,
