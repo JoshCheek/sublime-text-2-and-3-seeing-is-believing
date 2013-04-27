@@ -2,6 +2,9 @@ import sublime, sublime_plugin, subprocess, os
 
 class SeeingIsBelieving(sublime_plugin.TextCommand):
   def run(self, edit):
+    # assume one cursor b/c I'm fucking lazy, store its row/col
+    (row, col) = self.view.rowcol(self.view.sel()[0].begin())
+
     # load the text
     region = sublime.Region(0, self.view.size())
     text   = self.view.substr(region)
@@ -34,9 +37,11 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
       sublime.message_dialog(out[1])
       return
 
-    # replace body with result
+    # replace body with result, reset the selection
     self.view.replace(edit, region, out[0])
-
+    point = self.view.text_point(row, col)
+    self.view.sel().clear()
+    self.view.sel().add(sublime.Region(point))
 
 class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreamingThatsWhereIllAlwaysLoveYou(SeeingIsBelieving):
   def setup_flags(self, args, settings):
