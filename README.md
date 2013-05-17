@@ -12,41 +12,35 @@ gem install seeing_is_believing
 
 ## Installation
 
-You have 2 options for installing SeeingIsBelieving Plugin: using Git, or just downloading it.
+You have 2 options for installing SeeingIsBelieving Plugin: using Git, or just downloading it. Then you will need to fix the settings.
 
-### Git
+**Git**
 
 Open your terminal application and go to your Packages directory, whose location depends on your operating system:
 
-* OS X
+* OS X `cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages`
+* Linux `cd ~/.Sublime\ Text 2/Packages/`
+* Windows `cd %APPDATA%/Sublime Text 2/Packages/`
 
-    ```shell
-    cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
-    ```
+After this, you need to clone this repository: `git clone git://github.com/JoshCheek/sublime-text-2-seeing-is-believing.git SeeingIsBelieving`
 
-* Linux
+**Download**
 
-    ```shell
-    cd ~/.Sublime\ Text 2/Packages/
-    ```
+Click on the nice cloud icon above and download the zip file containing this plugin. Then unzip the file and move the resulting folder to your Packages directory.
 
-* Windows
+**Fixing Settings**
 
-    ```shell
-    cd %APPDATA%/Sublime Text 2/Packages/
-    ```
+You will need ot update the [settings](https://github.com/JoshCheek/sublime-text-2-seeing-is-believing/blob/master/Seeing%20Is%20Believing.sublime-settings)
+that tell this plugin how to run the code. This is in your package directory.
 
-After this, you just need to clone this repository:
+If you are using **rbenv**, you should only have to edit the environment variable specifying the `RBENV_VERSION`, you can see a list of possible values with `rbenv versions`.
 
-```shell
-git clone git://github.com/JoshCheek/sublime-text-2-seeing-is-believing.git SeeingIsBelieving
-```
+If you are using **rvm**, make a wrapper for sublime (instructions are in the [textmate integration](https://rvm.io/integration/textmate/) section,
+make the wrapper the same way they do for textmate, except name it sublime instead),
+find the path with `which sublime_ruby`, and set that as the value of `ruby_command` in the settings file.
 
-### Download
+If you are using something else, you just need to make sure that `ruby_command` points to a 1.9+ version of Ruby that has `seeing_is_believing` installed.
 
-Click on the nice cloud icon above and download the zip file containing this plugin.
-
-Then unzip the file and move the resulting folder to your Packages directory.
 
 ## Usage
 
