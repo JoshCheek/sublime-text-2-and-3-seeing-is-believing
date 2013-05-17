@@ -40,7 +40,7 @@ If you are using **rvm**, make a wrapper for sublime (instructions are in the [t
 make the wrapper the same way they do for textmate, except name it sublime instead),
 find the path with `which sublime_ruby`, and set that as the value of `ruby_command` in the settings file.
 
-If you are using something else, you just need to make sure that `ruby_command` points to a 1.9+ version of Ruby that has
+If you are using **something else**, you just need to make sure that `ruby_command` points to a 1.9+ version of Ruby that has
 `seeing_is_believing` [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) installed.
 
 ## Usage
