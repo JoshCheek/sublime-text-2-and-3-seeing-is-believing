@@ -30,7 +30,7 @@ Click on the nice cloud icon above and download the zip file containing this plu
 
 **Fixing Settings**
 
-You will need ot update the [settings](https://github.com/JoshCheek/sublime-text-2-seeing-is-believing/blob/master/Seeing%20Is%20Believing.sublime-settings)
+You will need to update the [settings](https://github.com/JoshCheek/sublime-text-2-seeing-is-believing/blob/master/Seeing%20Is%20Believing.sublime-settings)
 that tell this plugin how to run the code. This is in your package directory.
 
 If you are using **rbenv**, make sure the `ruby_command` is pointed at `~/.rbenv/shims/ruby`, or wherever you have your rbenv ruby installed,
