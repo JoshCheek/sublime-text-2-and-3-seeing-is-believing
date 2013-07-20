@@ -13,8 +13,10 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     settings = sublime.load_settings("Seeing Is Believing.sublime-settings")
 
     # set up env vars
-    env = os.environ.copy()
-    for (name, value) in settings.get("environment_variables").iteritems():
+    env                   = os.environ.copy()
+    env_variables         = settings.get("environment_variables")
+    environment_variables = ({} if env_variables is None else env_variables) # prob a better way to do this, if you know the pythons, feel free to do it for me :D
+    for (name, value) in environment_variables.iteritems():
       env[name] = value
 
     # set up the args
