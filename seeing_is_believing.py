@@ -21,9 +21,15 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
 
     # set up the args
     args = []
-    args.append(os.path.expanduser(settings.get("ruby_command")))
+    ruby_command = os.path.expanduser(settings.get("ruby_command"))
+    args.append(ruby_command)
     args.append('-S')
     args.append('seeing_is_believing')
+    args.append('--shebang')
+    args.append(ruby_command)
+    if self.view.file_name() != None:
+      args.append("--as")
+      args.append(self.view.file_name())
 
     # subclass defines this
     self.setup_flags(args, settings)
@@ -50,9 +56,16 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
     for (name, value) in settings.get("flags").iteritems():
       args.append(str(name))
       args.append(str(value))
-    if self.view.file_name() != None:
-      args.append("--as")
-      args.append(self.view.file_name())
+
+  def should_display_stderr(self, returncode):
+    return returncode != None and returncode != 0 and returncode != 1
+
+class IDrankPoisonForYou(SeeingIsBelieving):
+  def setup_flags(self, args, settings):
+    args.append('--xmpfilter-style')
+    for (name, value) in settings.get("flags").iteritems():
+      args.append(str(name))
+      args.append(str(value))
 
   def should_display_stderr(self, returncode):
     return returncode != None and returncode != 0 and returncode != 1
@@ -60,9 +73,6 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
 class EveryTimeSomeoneSaysIDoNotBelieveInFairiesSomewhereTheresAFairyThatFallsDownDead(SeeingIsBelieving):
   def setup_flags(self, args, settings):
     args.append('--clean')
-    if self.view.file_name() != None:
-      args.append("--as")
-      args.append(self.view.file_name())
 
   def should_display_stderr(self, returncode):
     return returncode != None and returncode != 0

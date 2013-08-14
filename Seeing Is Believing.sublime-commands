@@ -5,6 +5,11 @@
   },
 
   {
+    "caption": "Seeing Is Believing: Evaluate Marked Lines",
+    "command": "i_drank_poison_for_you"
+  },
+
+  {
     "caption": "Seeing Is Believing: Remove Annotations",
     "command": "every_time_someone_says_iDo_not_believe_in_fairies_somewhere_theres_aFairy_that_falls_down_dead"
   }

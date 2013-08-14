@@ -1,7 +1,21 @@
 [
   {
+    // b is for believer!
     "keys": ["ctrl+alt+b"],
     "command":"you_know_that_place_between_sleep_and_awake_that_place_where_you_still_remember_dreaming_thats_where_ill_always_love_you",
+    "context":
+      [
+        // if selector == source.ruby for all selections
+        { "key":       "selector",
+          "operator":  "equal",
+          "operand":   "source.ruby",
+          "match_all": true }
+      ]
+  },
+
+  {
+    "keys": ["ctrl+alt+n"],
+    "command":"i_drank_poison_for_you",
     "context":
       [
         // if selector == source.ruby for all selections

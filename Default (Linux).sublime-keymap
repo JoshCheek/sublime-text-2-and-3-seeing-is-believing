@@ -14,6 +14,19 @@
   },
 
   {
+    "keys": ["ctrl+alt+n"],
+    "command":"i_drank_poison_for_you",
+    "context":
+      [
+        // if selector == source.ruby for all selections
+        { "key":       "selector",
+          "operator":  "equal",
+          "operand":   "source.ruby",
+          "match_all": true }
+      ]
+  },
+
+  {
     "keys": ["ctrl+alt+v"],
     "command":"every_time_someone_says_iDo_not_believe_in_fairies_somewhere_theres_aFairy_that_falls_down_dead",
     "context":
