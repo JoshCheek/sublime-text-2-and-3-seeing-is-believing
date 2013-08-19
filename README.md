@@ -4,7 +4,7 @@ Integration of `seeing_is_believing` to sublime text 2 as a plugin.
 
 ## Prerequisites
 
-You need to have [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) installed:
+You need to have [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) 2.0 or greater installed:
 
 ```shell
 gem install seeing_is_believing
