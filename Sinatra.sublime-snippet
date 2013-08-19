@@ -1,0 +1,52 @@
+<snippet>
+    <content><![CDATA[
+require 'sinatra/base'
+require 'stringio'
+require 'logger'
+
+class MyApp < Sinatra::Base
+  enable :inline_templates
+  get '/users/:id' do
+    "User number #{params[:id]} is an uppity know-it-all"
+  end
+end
+
+env = {"REQUEST_METHOD" => "GET", "PATH_INFO" => "/users/456", "rack.input" => StringIO.new}
+status, headers, response = MyApp.call(env)
+
+status
+headers
+response
+
+# --- OTHER ENV OPTIONS ---
+# "REQUEST_PATH"              => "/users/123",
+# "REQUEST_URI"               => "/users/789",
+# "SERVER_SOFTWARE"           => "thin 1.5.1 codename Straight Razor",
+# "SERVER_NAME"               => "localhost",
+# "rack.version"              => [1, 0],
+# "rack.errors"               => \$stderr,
+# "HTTP_VERSION"              => "HTTP/1.1",
+# "HTTP_HOST"                 => "localhost:4567",
+# "HTTP_CONNECTION"           => "keep-alive",
+# "HTTP_CACHE_CONTROL"        => "max-age=0",
+# "HTTP_ACCEPT"               => "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+# "HTTP_USER_AGENT"           => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36",
+# "HTTP_ACCEPT_ENCODING"      => "gzip,deflate,sdch",
+# "HTTP_ACCEPT_LANGUAGE"      => "en-US,en;q=0.8",
+# "HTTP_COOKIE"               => "_session_id=2fca27fa2255b1ebf961610b616fc044; _simple_feed_consumer_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTNiNzg2YWQwMWU1NzU3M2MxM2U1ZTg5ZTRiZDY3MmJiBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXo2Y2YrVkhWRG9NQTVNV3ZoblVRdnRjRzk0eml4NGk1UzhQRFNZVHZhZzA9BjsARg%3D%3D--dc69c96a2374f9ffd646cd2005a63f3b32094f9f; _simple_feed_consumer2_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWE3Nzk2NzlmNjRjZjMwODY1NjdkMWU2OTdjNzYxNzNlBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEzVmVobmpaYTZzZGRzRytkNUVUUTV4THAxVnlvMXM1Q3hjTko4TXFUMm89BjsARg%3D%3D--fa7da019717903452ef2de05ccf74a9d9547c791; _simple_feed_consumer3_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTcxMjNjMmM5NTRiOGQzY2VkNmE4NTQxZjFhNzhlYWQxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTRnR1d3bVFoK3phMFdwQ2MyTEFmUGhHRjVTL0ZiblNhWkhvWFRqbllhZ1U9BjsARg%3D%3D--e6ddb60584bc6323181881d71ccc0380222d49f3; _gauges_unique_year=1; _gauges_unique=1; _simple_feed_consumer5_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWE3NTBhOGE3MDcyODljMWNjMzRjNWI1ZWI0ZDNmMjU2BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTB5dW9DRFkvOElpMzFkZk9PTGwrVTBpWnJ1RU4yWnFBdGI3cW0veXl2Q1U9BjsARg%3D%3D--4003910f17682ddb0e25e12c1fb865b16f197e29; _simple_feed_session=BAh7CDoScmV0dXJuX3RvX3VybDA6DHVzZXJfaWRpCEkiD3Nlc3Npb25faWQGOgZFRkkiJWE4ODMyM2Q4ZjgwZTNiNzI5YTA1ZTA5ZTFjYjg2ODI1BjsHVA%3D%3D--caf9d70c54a570a5bf8f7e9f939ca5bca1989d9e; _staffing_service_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWM1NzFiODc5MjJlMzhjYzA4NjM1ZDNlMGZmZTEwOWI3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUYvNldXOXkvKzlRMHNLb3BjcGt3UXlRN1BNT0oyL3cyRDdhSVhoaTlSWUU9BjsARkkiEGNyZWRlbnRpYWxzBjsARkM6F09tbmlBdXRoOjpBdXRoSGFzaHsJSSIKdG9rZW4GOwBGSSI5eWEyOS5BSEVTNlpUUTJZcEhSdjhnaGVoTUV6S043Nk42MEMwTm0waXJHRzFpMWNEbndVawY7AEZJIhJyZWZyZXNoX3Rva2VuBjsARkkiMjEvLURDWkx0T2ljSzUtQ3lkVjZfNEVDLWg0djlKVy15V1hxRlB3T053cks1WQY7AEZJIg9leHBpcmVzX2F0BjsARmwrB5fYflFJIgxleHBpcmVzBjsARlQ%3D--85f3a935ed10e4e4237ee72b236f901010222f71",
+# "GATEWAY_INTERFACE"         => "CGI/1.2",
+# "SERVER_PORT"               => "4567",
+# "QUERY_STRING"              => "",
+# "SERVER_PROTOCOL"           => "HTTP/1.1",
+# "rack.url_scheme"           => "http",
+# "SCRIPT_NAME"               => "",
+# "REMOTE_ADDR"               => "127.0.0.1",
+# "sinatra.commonlogger"      => true,
+# "rack.logger"               => Logger.new(\$stdout),
+# "rack.request.query_string" => "",
+# "rack.request.query_hash"   => {}
+]]></content>
+    <tabTrigger>s_sinatra</tabTrigger>
+    <scope>source.ruby</scope>
+    <description>Play with Sinatra, without needing to host it on a server</description>
+</snippet>

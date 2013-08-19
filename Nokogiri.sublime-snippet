@@ -1,0 +1,28 @@
+<snippet>
+    <content><![CDATA[
+require 'nokogiri'
+
+doc = Nokogiri::HTML(<<-HTML)
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <title>OMG</title>
+    </head>
+    <body>
+      <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+      </ul>
+    </body>
+  </html>
+HTML
+
+doc.at_css('ul li:nth-child(2)')
+   .text
+]]></content>
+    <tabTrigger>s_nokogiri</tabTrigger>
+    <scope>source.ruby</scope>
+    <description>Practice parsing html/xml/css selectors/xpath in Ruby</description>
+</snippet>

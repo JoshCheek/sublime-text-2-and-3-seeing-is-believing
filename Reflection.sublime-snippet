@@ -1,0 +1,68 @@
+<snippet>
+    <content><![CDATA[
+class User
+  attr_accessor :name, :age
+  def initialize(name, age)
+    self.name, self.age = name, age
+  end
+
+  private
+
+  def reverse_name
+    name.reverse
+  end
+end
+
+user = User.new 'Mr. Picklecopter', 45
+
+# ZOMG, ENCAPSULATION VIOLATION!
+user.instance_variables
+user.instance_variable_get(:@name)
+user.instance_variable_set(:@name, 'Mr. Lawyerstein')
+user.name
+user.instance_eval { "#@name is #@age years old" }
+user.send(:reverse_name)
+
+
+# ZOMG, METHODS!
+user.methods(false)
+ def user.what_time?(a, b=1, *c, &d)
+  '420'
+end
+
+# getting lists of methods
+user.singleton_methods
+user.methods
+user.private_methods(false)
+
+User.instance_methods(false)
+User.private_instance_methods(false)
+
+# fun shit to do with methods
+user.method(:reverse_name)
+user.method(:reverse_name).owner
+user.method(:puts).owner
+user.method(:reverse_name).call
+user.method(:what_time?).parameters
+
+User.instance_method(:name)
+    .bind(user)
+    .call
+
+# uhm, there was a method like code_location or something, lets find and use that
+user.method(:reverse_name).methods.grep(/loc/)
+user.method(:reverse_name).source_location
+
+
+# ZOMG OTHER SHIT!
+user.class
+user.class.class
+user.class.class.class
+User.ancestors
+Object.constants.grep(/ruby/i)
+Object.included_modules
+]]></content>
+    <tabTrigger>s_reflection</tabTrigger>
+    <scope>source.ruby</scope>
+    <description>Examples of reflection in Ruby</description>
+</snippet>
