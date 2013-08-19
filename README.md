@@ -66,6 +66,14 @@ end              # => 10
 Now you want to edit it, so run `Remove Seeing Is Believing annotations` or press (⌥ + ⌘ + V on OS X).
 And you are back to the original.
 
+There are also some default snippets you can use to play around with SiB.
+
+* `s_arb` tab        - In memory ActiveRecord environment
+* `s_nokogiri` tab   - Practice parsing html/xml/css selectors/xpath in Ruby
+* `s_sinatra` tab    - Play with Sinatra, without needing to host it on a server
+* `s_reflection` tab - Examples of reflection in Ruby (knowing these makes SiB much more useful)
+
+
 ## Configuration
 
 You can edit these from your preferences folder. You can specify how to find Ruby (e.g. integrate with your version manager).
