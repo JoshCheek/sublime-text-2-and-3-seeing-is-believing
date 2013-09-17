@@ -42,11 +42,15 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     #  error code 1 is displayable errors like exceptions getting raised
     #  non zero/one errors can't be displayed, like syntax error, so we need a dialog box
     if self.should_display_stderr(s.returncode):
+      error_msg = out[1].decode('utf-8')
       sublime.message_dialog(out[1])
       return
 
+    replace_str = out[0].decode('utf-8')
     # replace body with result, reset the selection
-    self.view.replace(edit, region, out[0])
+    #self.view.replace(edit, region, out[0])
+    self.view.replace(edit, region, replace_str)
+    #self.view.replace(edit, region, str(out[0])) # not really the wanted solution
     point = self.view.text_point(row, col)
     self.view.sel().clear()
     self.view.sel().add(sublime.Region(point))
