@@ -1,6 +1,8 @@
 import sublime, sublime_plugin, subprocess, os, sys
 
 class SeeingIsBelieving(sublime_plugin.TextCommand):
+
+  # In python 3.3 process communication return bytes instead of strings
   def to_srt(self, seq):
     if sys.version_info[0] > 2:
       return seq.decode('utf-8')
@@ -50,11 +52,9 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
       sublime.message_dialog(self.to_srt(out[1]))
       return
 
-    replace_str = self.to_srt(out[0])
     # replace body with result, reset the selection
-    #self.view.replace(edit, region, out[0])
+    replace_str = self.to_srt(out[0])
     self.view.replace(edit, region, replace_str)
-    #self.view.replace(edit, region, str(out[0])) # not really the wanted solution
     point = self.view.text_point(row, col)
     self.view.sel().clear()
     self.view.sel().add(sublime.Region(point))
