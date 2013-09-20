@@ -1,10 +1,15 @@
-import sublime, sublime_plugin, subprocess, os
+import sublime, sublime_plugin, subprocess, os, sys
 
 class SeeingIsBelieving(sublime_plugin.TextCommand):
+  def to_srt(self, seq):
+    if sys.version_info[0] > 2:
+      return seq.decode('utf-8')
+    else:
+      return seq
+
   def run(self, edit):
     # assume one cursor b/c I'm fucking lazy, store its row/col
     (row, col) = self.view.rowcol(self.view.sel()[0].begin())
-
     # load the text
     region = sublime.Region(0, self.view.size())
     text   = self.view.substr(region)
@@ -42,11 +47,10 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     #  error code 1 is displayable errors like exceptions getting raised
     #  non zero/one errors can't be displayed, like syntax error, so we need a dialog box
     if self.should_display_stderr(s.returncode):
-      error_msg = out[1].decode('utf-8')
-      sublime.message_dialog(out[1])
+      sublime.message_dialog(self.to_srt(out[1]))
       return
 
-    replace_str = out[0].decode('utf-8')
+    replace_str = self.to_srt(out[0])
     # replace body with result, reset the selection
     #self.view.replace(edit, region, out[0])
     self.view.replace(edit, region, replace_str)
