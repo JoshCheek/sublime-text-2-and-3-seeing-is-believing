@@ -43,6 +43,14 @@ find the path with `which sublime_ruby`, and set that as the value of `ruby_comm
 If you are using **something else**, you just need to make sure that `ruby_command` points to a 1.9+ version of Ruby that has
 `seeing_is_believing` [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) installed.
 
+If you are installing on **Windows**, you will need to provide the fully qualified path to `ruby_command` using '/' rather than the Window's default '\':
+
+Example: `"ruby_command": "C:/path/to/ruby.exe"`
+
+You will also need to comment out the line containing `RBENV_VERSION`.
+
+Example: `//"RBENV_VERSION": "2.0.0-p0"`
+
 ## Usage
 
 Open a ruby file write some code.
