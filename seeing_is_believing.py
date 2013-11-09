@@ -1,10 +1,17 @@
-import sublime, sublime_plugin, subprocess, os
+import sublime, sublime_plugin, subprocess, os, sys
 
 class SeeingIsBelieving(sublime_plugin.TextCommand):
+
+  # In python 3.3 process communication return bytes instead of strings
+  def to_srt(self, seq):
+    if sys.version_info[0] > 2:
+      return seq.decode('utf-8')
+    else:
+      return seq
+
   def run(self, edit):
     # assume one cursor b/c I'm fucking lazy, store its row/col
     (row, col) = self.view.rowcol(self.view.sel()[0].begin())
-
     # load the text
     region = sublime.Region(0, self.view.size())
     text   = self.view.substr(region)
@@ -16,7 +23,8 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     env                   = os.environ.copy()
     env_variables         = settings.get("environment_variables")
     environment_variables = ({} if env_variables is None else env_variables) # prob a better way to do this, if you know the pythons, feel free to do it for me :D
-    for (name, value) in environment_variables.iteritems():
+
+    for name, value in environment_variables.items():
       env[name] = value
 
     # set up the args
@@ -37,23 +45,23 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     # call seeing is believing
     s = subprocess.Popen(args, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out = s.communicate(text.encode('utf-8'))
-
     # display error
     #  error code 1 is displayable errors like exceptions getting raised
     #  non zero/one errors can't be displayed, like syntax error, so we need a dialog box
     if self.should_display_stderr(s.returncode):
-      sublime.message_dialog(out[1])
+      sublime.message_dialog(self.to_srt(out[1]))
       return
 
     # replace body with result, reset the selection
-    self.view.replace(edit, region, out[0])
+    replace_str = self.to_srt(out[0])
+    self.view.replace(edit, region, replace_str)
     point = self.view.text_point(row, col)
     self.view.sel().clear()
     self.view.sel().add(sublime.Region(point))
 
 class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreamingThatsWhereIllAlwaysLoveYou(SeeingIsBelieving):
   def setup_flags(self, args, settings):
-    for (name, value) in settings.get("flags").iteritems():
+    for (name, value) in settings.get("flags").items():
       args.append(str(name))
       args.append(str(value))
 
@@ -63,7 +71,7 @@ class YouKnowThatPlaceBetweenSleepAndAwakeThatPlaceWhereYouStillRememberDreaming
 class IDrankPoisonForYou(SeeingIsBelieving):
   def setup_flags(self, args, settings):
     args.append('--xmpfilter-style')
-    for (name, value) in settings.get("flags").iteritems():
+    for (name, value) in settings.get("flags").items():
       args.append(str(name))
       args.append(str(value))
 
