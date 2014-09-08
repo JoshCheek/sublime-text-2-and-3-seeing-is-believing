@@ -21,7 +21,15 @@
                             "file": "${packages}/Seeing Is Believing.sublime-settings"
                           },
                           "caption": "Settings - Default"
-                        }
+                        },
+                            {
+                                "command": "open_file", "args":
+                                {
+                                    "file": "${packages}/User/Seeing Is Believing.sublime-settings"
+                                },
+                                "caption": "Settings – User"
+                            },
+                            { "caption": "-" }
                       ]
                     }
                 ]
