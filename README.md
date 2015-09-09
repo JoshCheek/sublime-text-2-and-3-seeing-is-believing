@@ -1,6 +1,6 @@
 # Seeing Is Believing
 
-Integration of `seeing_is_believing` to sublime text 2 as a plugin.
+Integration of `seeing_is_believing` to Sublime Text 2 and 3.
 
 ## Prerequisites
 
