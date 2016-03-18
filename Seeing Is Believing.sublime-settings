@@ -1,14 +1,14 @@
 {
   // the command to run your ruby, again this is setup for rbenv
   // if you've installed Ruby without any managers, this would just be "ruby"
-  "ruby_command": "/Users/josh/code/dotfiles/bin/sib_ruby",
+  "ruby_command": "~/.rbenv/shims/ruby",
 
 
   // environment variables to set before running
   "environment_variables": {
     // for bootstrapping rbenv
     // if you manage your versions differently, you'll have to figure out how your manager works
-    "RBENV_VERSION": "2.2.2p95",
+    "RBENV_VERSION": "2.2.2p95"
     "LANG": "en_US.UTF-8"
   },
 
