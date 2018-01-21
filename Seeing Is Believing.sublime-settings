@@ -1,14 +1,10 @@
 {
-  // the command to run your ruby, again this is setup for rbenv
-  // if you've installed Ruby without any managers, this would just be "ruby"
-  "ruby_command": "~/.rbenv/shims/ruby",
-
+  // If you want to run a specific Ruby from a specific location,
+  // then you can override the command it uses to invoke Ruby.
+  "ruby_command": "ruby",
 
   // environment variables to set before running
   "environment_variables": {
-    // for bootstrapping rbenv
-    // if you manage your versions differently, you'll have to figure out how your manager works
-    "RBENV_VERSION": "2.2.2p95",
     "LANG": "en_US.UTF-8"
   },
 
@@ -26,11 +22,11 @@
     // line            =>  each line is at its own alignment
     "--alignment-strategy": "chunk",
 
-    // timeout limit in seconds when evaluating source file (ex. -t 0.3 or -t 3)
     // omit for no timeout (warning, can freeze your editor up if you have an infinite loop)
-    "--timeout": 12,
+    "--timeout-seconds": 12,
 
-    // sets file encoding, equivalent to Ruby's -Kx (see `man ruby` for valid values)
-    "--encoding": "u"
+    // stops recording after this many results, which keeps it from slowing down
+    // in big loops, and resuces spam in the same way that the --line-length does
+    "--max-line-captures": 200,
   }
 }
