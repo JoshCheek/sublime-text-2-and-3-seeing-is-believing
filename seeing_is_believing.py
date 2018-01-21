@@ -33,8 +33,6 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
     args.append(ruby_command)
     args.append('-S')
     args.append('seeing_is_believing')
-    args.append('--shebang')
-    args.append(ruby_command)
     if self.view.file_name() != None:
       args.append("--as")
       args.append(self.view.file_name())
@@ -52,8 +50,9 @@ class SeeingIsBelieving(sublime_plugin.TextCommand):
       sublime.message_dialog(self.to_srt(out[1]))
       return
 
-    # replace body with result, reset the selection
-    replace_str = self.to_srt(out[0])
+    # replace body with result, reset the selection.
+    # for more info about the "\r\n" replacement, see https://github.com/JoshCheek/sublime-text-2-and-3-seeing-is-believing/issues/20
+    replace_str = self.to_srt(out[0]).replace("\r\n", "\n")
     self.view.replace(edit, region, replace_str)
     point = self.view.text_point(row, col)
     self.view.sel().clear()

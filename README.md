@@ -18,38 +18,34 @@ You have two options for installing the SeeingIsBelieving Plugin: using Git, or 
 
 Open your terminal application and go to your Packages directory, whose location depends on your operating system:
 
-* OS X - For Sublime Text 2 use `cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages`, and for Sublime Text 3 use `cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages`
+Sublime Text 2:
+
+* OS X - `cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages`
 * Linux - `cd ~/.Sublime\ Text 2/Packages/`
 * Windows - `cd %APPDATA%/Sublime Text 2/Packages/`
 
-After this, you need to clone this repository: `git clone git://github.com/JoshCheek/sublime-text-2-seeing-is-believing.git SeeingIsBelieving`
+Sublime Text 3:
+
+* OS X - `cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages`
+* Linux - `cd ~/.Sublime\ Text 3/Packages/`
+* Windows - `cd %APPDATA%/Sublime Text 3/Packages/`
+
+After this, you need to clone this repository: `git clone git://github.com/JoshCheek/sublime-text-2-and-3-seeing-is-believing.git SeeingIsBelieving`
 
 **Download**
 
 Click on the nice cloud icon above and download the zip file containing this plugin. Then unzip the file and move the resulting folder to your Packages directory.
 
-**Fixing Settings**
+**Customizing**
 
-You will need to update the [settings](https://github.com/JoshCheek/sublime-text-2-seeing-is-believing/blob/master/Seeing%20Is%20Believing.sublime-settings)
-that tell this plugin how to run the code. This is in your package directory.
+You can customize which Ruby to use, and how to invoke SiB in the
+[settings](https://github.com/JoshCheek/sublime-text-2-seeing-is-believing/blob/master/Seeing%20Is%20Believing.sublime-settings).
 
-If you are using **rbenv**, make sure the `ruby_command` is pointed at `~/.rbenv/shims/ruby`, or wherever you have your rbenv ruby installed,
-then edit the environment variable specifying the `RBENV_VERSION`, you can see a list of possible values with `rbenv versions`.
+In particular, you'll need to go here if it can't find your Ruby.
+In that situation, try opening a shell and running `ruby -e 'p RbConfig.ruby'`,
+its possible that what it prints is the value you need to set. You can also
+set environment variables here, and set any flags that you want passed to SiB.
 
-If you are using **rvm**, make a wrapper for sublime (instructions are in the [textmate integration](https://rvm.io/integration/textmate/) section,
-make the wrapper the same way they do for Textmate, except name it sublime instead),
-find the path with `which sublime_ruby`, and set that as the value of `ruby_command` in the settings file.
-
-If you are using **something else**, you just need to make sure that `ruby_command` points to a 1.9+ version of Ruby that has
-`seeing_is_believing` [seeing_is_believing](http://rubygems.org/gems/seeing_is_believing) installed.
-
-If you are installing on **Windows**, you will need to provide the fully qualified path to `ruby_command` using '/' rather than the Window's default '\':
-
-Example: `"ruby_command": "C:/path/to/ruby.exe"`
-
-You will also need to comment out the line containing `RBENV_VERSION`.
-
-Example: `//"RBENV_VERSION": "2.0.0-p0"`
 
 ## Usage
 
